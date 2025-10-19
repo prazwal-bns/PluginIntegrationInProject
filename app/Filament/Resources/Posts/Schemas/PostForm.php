@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Posts\Schemas;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Przwl\MultiSourceFileUpload\Components\MultiSourceFileUpload;
 
 class PostForm
 {
@@ -18,6 +19,9 @@ class PostForm
                 Textarea::make('content')
                     ->required()
                     ->maxLength(1000),
+                ...(MultiSourceFileUpload::make('image', 'image_url')
+                    ->required()
+                    ->image())->getSchema(),
             ]);
     }
 }
