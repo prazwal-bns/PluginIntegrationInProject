@@ -21,7 +21,8 @@ class PostForm
                     ->maxLength(1000),
                 ...(MultiSourceFileUpload::make('image', 'image_url')
                     ->required()
-                    ->image())->getSchema(),
+                    ->image())
+                    ->getSchema(),
             ]);
     }
 }
